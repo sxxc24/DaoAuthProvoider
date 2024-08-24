@@ -34,6 +34,7 @@ public class SecurityConfigClass {
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        // user password -> hashed done when [ new BCryptPasswordEncoder(strength:10) ] used instead [ NoOpPasswordEncoder.getInstance() ]
         auth.setUserDetailsService(service);
         return auth;
     }
